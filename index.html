@@ -3,62 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Verstappen - Legends Never Die</title>
+    <title>F1 Aerodynamics - 3D Presentation</title>
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- Video Background -->
-        <div class="video-container">
-            <video id="mainVideo" class="video-layer" muted playsinline></video>
-            <div class="overlay"></div>
-        </div>
-
-        <!-- Cinematic Effects -->
-        <div class="vignette"></div>
-        <div class="scanlines"></div>
-        <div class="flash"></div>
+    <div id="container">
+        <!-- 3D Canvas -->
+        <canvas id="canvas3d"></canvas>
         
-        <!-- Text Overlays -->
-        <div class="text-overlay">
-            <h1 class="title" id="titleText">MAX VERSTAPPEN</h1>
-            <p class="subtitle" id="subtitleText">LEGENDS NEVER DIE</p>
-        </div>
-
-        <!-- Stats Display -->
-        <div class="stats" id="stats">
-            <div class="stat-item">
-                <span class="stat-number">3X</span>
-                <span class="stat-label">WORLD CHAMPION</span>
+        <!-- UI Overlay -->
+        <div class="ui-overlay">
+            <!-- Title -->
+            <div class="header">
+                <h1 class="main-title">F1 AERODYNAMICS</h1>
+                <p class="subtitle">Rules & Airflow Dynamics</p>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">54</span>
-                <span class="stat-label">RACE WINS</span>
+            
+            <!-- Info Panel -->
+            <div class="info-panel" id="infoPanel">
+                <h2 class="panel-title" id="panelTitle">Welcome</h2>
+                <p class="panel-text" id="panelText">Loading presentation...</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">19</span>
-                <span class="stat-label">CONSECUTIVE WINS</span>
+            
+            <!-- Technical Stats -->
+            <div class="stats-container" id="statsContainer">
+                <div class="stat-box">
+                    <span class="stat-value" id="stat1">0</span>
+                    <span class="stat-label">Downforce (kg)</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="stat2">0</span>
+                    <span class="stat-label">Speed (km/h)</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="stat3">0</span>
+                    <span class="stat-label">Drag Coefficient</span>
+                </div>
+            </div>
+            
+            <!-- Controls -->
+            <div class="controls">
+                <button class="control-btn" id="startBtn">START PRESENTATION</button>
+                <button class="control-btn secondary" id="restartBtn">RESTART</button>
+            </div>
+            
+            <!-- Navigation Dots -->
+            <div class="nav-dots" id="navDots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
             </div>
         </div>
-
-        <!-- Quotes -->
-        <div class="quote" id="quote">
-            "SIMPLY LOVELY"
-        </div>
-
-        <!-- Controls -->
-        <div class="controls">
-            <button id="playBtn" class="control-btn">▶ PLAY EDIT</button>
-            <button id="restartBtn" class="control-btn">↻ RESTART</button>
-        </div>
-
-        <!-- Audio -->
-        <audio id="audio" src="https://cdn.pixabay.com/audio/2022/03/10/audio_d1718372d8.mp3"></audio>
+        
+        <!-- Airflow Particles Overlay -->
+        <canvas id="particlesCanvas"></canvas>
     </div>
-
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
