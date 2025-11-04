@@ -3,62 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Verstappen - Legends Never Die</title>
+    <title>F1 3D Presentation - Formula 1 Experience</title>
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- Video Background -->
-        <div class="video-container">
-            <video id="mainVideo" class="video-layer" muted playsinline></video>
-            <div class="overlay"></div>
-        </div>
-
-        <!-- Cinematic Effects -->
-        <div class="vignette"></div>
-        <div class="scanlines"></div>
-        <div class="flash"></div>
+    <div id="container">
+        <!-- 3D Canvas -->
+        <canvas id="canvas3d"></canvas>
         
-        <!-- Text Overlays -->
-        <div class="text-overlay">
-            <h1 class="title" id="titleText">MAX VERSTAPPEN</h1>
-            <p class="subtitle" id="subtitleText">LEGENDS NEVER DIE</p>
-        </div>
-
-        <!-- Stats Display -->
-        <div class="stats" id="stats">
-            <div class="stat-item">
-                <span class="stat-number">3X</span>
-                <span class="stat-label">WORLD CHAMPION</span>
+        <!-- UI Overlay -->
+        <div class="ui-overlay">
+            <!-- Title Section -->
+            <div class="title-section">
+                <h1 class="main-title">FORMULA 1</h1>
+                <p class="subtitle">3D INTERACTIVE EXPERIENCE</p>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">54</span>
-                <span class="stat-label">RACE WINS</span>
+            
+            <!-- Info Panel -->
+            <div class="info-panel">
+                <div class="info-item">
+                    <span class="info-label">TOP SPEED</span>
+                    <span class="info-value" id="speed">372 KM/H</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">POWER</span>
+                    <span class="info-value">1000 HP</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">0-100</span>
+                    <span class="info-value">2.6 SEC</span>
+                </div>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">19</span>
-                <span class="stat-label">CONSECUTIVE WINS</span>
+            
+            <!-- Stats Display -->
+            <div class="stats-panel">
+                <div class="stat-box">
+                    <div class="stat-number">23</div>
+                    <div class="stat-label">RACES</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">TEAMS</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">DRIVERS</div>
+                </div>
+            </div>
+            
+            <!-- Controls Info -->
+            <div class="controls-info">
+                <p>🖱️ DRAG TO ROTATE • SCROLL TO ZOOM</p>
+                <p>⌨️ SPACE: AUTO-ROTATE • R: RESET VIEW</p>
+            </div>
+            
+            <!-- Camera Presets -->
+            <div class="camera-controls">
+                <button class="cam-btn" data-view="front">FRONT</button>
+                <button class="cam-btn" data-view="side">SIDE</button>
+                <button class="cam-btn" data-view="top">TOP</button>
+                <button class="cam-btn" data-view="cinematic">CINEMATIC</button>
             </div>
         </div>
-
-        <!-- Quotes -->
-        <div class="quote" id="quote">
-            "SIMPLY LOVELY"
+        
+        <!-- Loading Screen -->
+        <div id="loading-screen">
+            <div class="loader">
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+            </div>
+            <p class="loading-text">LOADING F1 EXPERIENCE...</p>
         </div>
-
-        <!-- Controls -->
-        <div class="controls">
-            <button id="playBtn" class="control-btn">▶ PLAY EDIT</button>
-            <button id="restartBtn" class="control-btn">↻ RESTART</button>
-        </div>
-
-        <!-- Audio -->
-        <audio id="audio" src="https://cdn.pixabay.com/audio/2022/03/10/audio_d1718372d8.mp3"></audio>
     </div>
-
+    
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
