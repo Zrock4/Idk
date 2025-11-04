@@ -12,6 +12,23 @@ const quote = document.getElementById('quote');
 const flash = document.querySelector('.flash');
 const textOverlay = document.querySelector('.text-overlay');
 
+// URL Parameters - Easy customization!
+function getURLParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        name: params.get('name') || 'MAX VERSTAPPEN',
+        subtitle: params.get('subtitle') || 'LEGENDS NEVER DIE',
+        quote: params.get('quote') || 'SIMPLY LOVELY'
+    };
+}
+
+// Apply URL parameters
+const customText = getURLParams();
+titleText.textContent = customText.name.toUpperCase();
+subtitleText.textContent = customText.subtitle.toUpperCase();
+quote.textContent = `"${customText.quote.toUpperCase()}"`;
+document.title = `${customText.name} - ${customText.subtitle}`;
+
 // High-quality Max Verstappen racing footage URLs
 const videoClips = [
     'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
